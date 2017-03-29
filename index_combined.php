@@ -655,5 +655,12 @@ if ( is_array( $result ) ) {
 ?>
 </div>
 </center>
+<script type="text/javascript">
+	<?php if ($autorefresh = (int) @$_GET['autorefresh']) { // Refresh every X minutes ?>
+		setTimeout(function() {
+			location.reload();
+		}, <?php echo max(5, $autorefresh) // minimum 5 minutes ?> * 60 * 1000);
+	<?php } ?>
+</script>
 </body>
 </html>
